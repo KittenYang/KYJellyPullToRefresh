@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5FD648661A85D50D00E844B0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD648651A85D50D00E844B0 /* main.m */; };
+		5FD648691A85D50D00E844B0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD648681A85D50D00E844B0 /* AppDelegate.m */; };
+		5FD6486F1A85D50D00E844B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FD6486D1A85D50D00E844B0 /* Main.storyboard */; };
+		5FD648711A85D50D00E844B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FD648701A85D50D00E844B0 /* Images.xcassets */; };
+		5FD648741A85D50D00E844B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD648721A85D50D00E844B0 /* LaunchScreen.xib */; };
+		5FD648801A85D50D00E844B0 /* KYJellyPullToRefreshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD6487F1A85D50D00E844B0 /* KYJellyPullToRefreshTests.m */; };
+		5FD6488E1A85E78800E844B0 /* KYJellyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD6488D1A85E78800E844B0 /* KYJellyTableViewController.m */; };
+		5FD648911A86432200E844B0 /* JellyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD648901A86432200E844B0 /* JellyView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5FD6487A1A85D50D00E844B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FD648581A85D50C00E844B0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FD6485F1A85D50D00E844B0;
+			remoteInfo = KYJellyPullToRefresh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5FD648601A85D50D00E844B0 /* KYJellyPullToRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KYJellyPullToRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FD648641A85D50D00E844B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FD648651A85D50D00E844B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5FD648671A85D50D00E844B0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5FD648681A85D50D00E844B0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5FD6486E1A85D50D00E844B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5FD648701A85D50D00E844B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		5FD648731A85D50D00E844B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		5FD648791A85D50D00E844B0 /* KYJellyPullToRefreshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KYJellyPullToRefreshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FD6487E1A85D50D00E844B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FD6487F1A85D50D00E844B0 /* KYJellyPullToRefreshTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYJellyPullToRefreshTests.m; sourceTree = "<group>"; };
+		5FD6488C1A85E78800E844B0 /* KYJellyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYJellyTableViewController.h; sourceTree = "<group>"; };
+		5FD6488D1A85E78800E844B0 /* KYJellyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYJellyTableViewController.m; sourceTree = "<group>"; };
+		5FD6488F1A86432200E844B0 /* JellyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JellyView.h; sourceTree = "<group>"; };
+		5FD648901A86432200E844B0 /* JellyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JellyView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5FD6485D1A85D50D00E844B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FD648761A85D50D00E844B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5FD648571A85D50C00E844B0 = {
+			isa = PBXGroup;
+			children = (
+				5FD648621A85D50D00E844B0 /* KYJellyPullToRefresh */,
+				5FD6487C1A85D50D00E844B0 /* KYJellyPullToRefreshTests */,
+				5FD648611A85D50D00E844B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5FD648611A85D50D00E844B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FD648601A85D50D00E844B0 /* KYJellyPullToRefresh.app */,
+				5FD648791A85D50D00E844B0 /* KYJellyPullToRefreshTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5FD648621A85D50D00E844B0 /* KYJellyPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				5FD648671A85D50D00E844B0 /* AppDelegate.h */,
+				5FD648681A85D50D00E844B0 /* AppDelegate.m */,
+				5FD6488C1A85E78800E844B0 /* KYJellyTableViewController.h */,
+				5FD6488D1A85E78800E844B0 /* KYJellyTableViewController.m */,
+				5FD6488F1A86432200E844B0 /* JellyView.h */,
+				5FD648901A86432200E844B0 /* JellyView.m */,
+				5FD6486D1A85D50D00E844B0 /* Main.storyboard */,
+				5FD648701A85D50D00E844B0 /* Images.xcassets */,
+				5FD648721A85D50D00E844B0 /* LaunchScreen.xib */,
+				5FD648631A85D50D00E844B0 /* Supporting Files */,
+			);
+			path = KYJellyPullToRefresh;
+			sourceTree = "<group>";
+		};
+		5FD648631A85D50D00E844B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FD648641A85D50D00E844B0 /* Info.plist */,
+				5FD648651A85D50D00E844B0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FD6487C1A85D50D00E844B0 /* KYJellyPullToRefreshTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FD6487F1A85D50D00E844B0 /* KYJellyPullToRefreshTests.m */,
+				5FD6487D1A85D50D00E844B0 /* Supporting Files */,
+			);
+			path = KYJellyPullToRefreshTests;
+			sourceTree = "<group>";
+		};
+		5FD6487D1A85D50D00E844B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FD6487E1A85D50D00E844B0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5FD6485F1A85D50D00E844B0 /* KYJellyPullToRefresh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FD648831A85D50D00E844B0 /* Build configuration list for PBXNativeTarget "KYJellyPullToRefresh" */;
+			buildPhases = (
+				5FD6485C1A85D50D00E844B0 /* Sources */,
+				5FD6485D1A85D50D00E844B0 /* Frameworks */,
+				5FD6485E1A85D50D00E844B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KYJellyPullToRefresh;
+			productName = KYJellyPullToRefresh;
+			productReference = 5FD648601A85D50D00E844B0 /* KYJellyPullToRefresh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5FD648781A85D50D00E844B0 /* KYJellyPullToRefreshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FD648861A85D50D00E844B0 /* Build configuration list for PBXNativeTarget "KYJellyPullToRefreshTests" */;
+			buildPhases = (
+				5FD648751A85D50D00E844B0 /* Sources */,
+				5FD648761A85D50D00E844B0 /* Frameworks */,
+				5FD648771A85D50D00E844B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FD6487B1A85D50D00E844B0 /* PBXTargetDependency */,
+			);
+			name = KYJellyPullToRefreshTests;
+			productName = KYJellyPullToRefreshTests;
+			productReference = 5FD648791A85D50D00E844B0 /* KYJellyPullToRefreshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5FD648581A85D50C00E844B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Kitten Yang";
+				TargetAttributes = {
+					5FD6485F1A85D50D00E844B0 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					5FD648781A85D50D00E844B0 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 5FD6485F1A85D50D00E844B0;
+					};
+				};
+			};
+			buildConfigurationList = 5FD6485B1A85D50C00E844B0 /* Build configuration list for PBXProject "KYJellyPullToRefresh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5FD648571A85D50C00E844B0;
+			productRefGroup = 5FD648611A85D50D00E844B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5FD6485F1A85D50D00E844B0 /* KYJellyPullToRefresh */,
+				5FD648781A85D50D00E844B0 /* KYJellyPullToRefreshTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5FD6485E1A85D50D00E844B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FD6486F1A85D50D00E844B0 /* Main.storyboard in Resources */,
+				5FD648741A85D50D00E844B0 /* LaunchScreen.xib in Resources */,
+				5FD648711A85D50D00E844B0 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FD648771A85D50D00E844B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5FD6485C1A85D50D00E844B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FD6488E1A85E78800E844B0 /* KYJellyTableViewController.m in Sources */,
+				5FD648911A86432200E844B0 /* JellyView.m in Sources */,
+				5FD648691A85D50D00E844B0 /* AppDelegate.m in Sources */,
+				5FD648661A85D50D00E844B0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FD648751A85D50D00E844B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FD648801A85D50D00E844B0 /* KYJellyPullToRefreshTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FD6487B1A85D50D00E844B0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FD6485F1A85D50D00E844B0 /* KYJellyPullToRefresh */;
+			targetProxy = 5FD6487A1A85D50D00E844B0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5FD6486D1A85D50D00E844B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FD6486E1A85D50D00E844B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5FD648721A85D50D00E844B0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FD648731A85D50D00E844B0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5FD648811A85D50D00E844B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5FD648821A85D50D00E844B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5FD648841A85D50D00E844B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinyu Li (XWYND9KE57)";
+				INFOPLIST_FILE = KYJellyPullToRefresh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5FD648851A85D50D00E844B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = KYJellyPullToRefresh/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5FD648871A85D50D00E844B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KYJellyPullToRefreshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYJellyPullToRefresh.app/KYJellyPullToRefresh";
+			};
+			name = Debug;
+		};
+		5FD648881A85D50D00E844B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KYJellyPullToRefreshTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KYJellyPullToRefresh.app/KYJellyPullToRefresh";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5FD6485B1A85D50C00E844B0 /* Build configuration list for PBXProject "KYJellyPullToRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FD648811A85D50D00E844B0 /* Debug */,
+				5FD648821A85D50D00E844B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FD648831A85D50D00E844B0 /* Build configuration list for PBXNativeTarget "KYJellyPullToRefresh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FD648841A85D50D00E844B0 /* Debug */,
+				5FD648851A85D50D00E844B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FD648861A85D50D00E844B0 /* Build configuration list for PBXNativeTarget "KYJellyPullToRefreshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FD648871A85D50D00E844B0 /* Debug */,
+				5FD648881A85D50D00E844B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5FD648581A85D50C00E844B0 /* Project object */;
+}
