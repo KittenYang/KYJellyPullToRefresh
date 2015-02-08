@@ -13,5 +13,8 @@
 
 @property  CGFloat controlPointOffset;
 @property  CGFloat yOffset;
+@property (nonatomic,strong)UIView *controlPoint;
+@property  CGRect userFrame;
 
+@property BOOL isLoading;
 @end

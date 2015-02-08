@@ -7,16 +7,21 @@
 //
 
 
-#define jellyHeaderHeight [UIScreen mainScreen].bounds.size.height
+
+
+#define jellyHeaderHeight 500
 #import "KYJellyTableViewController.h"
 
 @interface KYJellyTableViewController ()
 
 @property (nonatomic,strong) CADisplayLink *displayLink;
 
+
 @end
 
-@implementation KYJellyTableViewController
+@implementation KYJellyTableViewController{
+
+}
 
 
 - (void)viewDidLoad {
@@ -25,7 +30,6 @@
     self.title  = @"果冻下拉刷新";
     self.tableView.allowsSelection = YES;
     self.tableView.delegate  =self;
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,37 +63,84 @@
 }
 
 
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    if (self.displayLink == nil) {
+
+
+//判断滚动方向向上还是向下
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    
+    if (self.displayLink == nil && (-scrollView.contentOffset.y - 64.5) > 0) {
         self.jellyView = [[JellyView alloc]initWithFrame:CGRectMake(0, -jellyHeaderHeight , [UIScreen mainScreen].bounds.size.width, jellyHeaderHeight)];
         self.jellyView.backgroundColor = [UIColor clearColor];
         [self.view insertSubview:self.jellyView aboveSubview:self.tableView];
         
+        
         self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkAction:)];
         [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
     }
-    NSLog(@"scrollViewWillBeginDragging");
+
 }
 
+
+//松手的时候
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+
+    CGFloat offset = -scrollView.contentOffset.y - 64.5;
+    if (offset >= 130) {
+        
+        self.jellyView.isLoading = YES;
+        
+        
+        [UIView animateWithDuration:0.3 delay:0.0f usingSpringWithDamping:0.4f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            
+            self.jellyView.controlPoint.center = CGPointMake(self.jellyView.userFrame.size.width / 2, jellyHeaderHeight);
+            NSLog(@"self.jellyView.controlPoint.center:%@",NSStringFromCGPoint(self.jellyView.controlPoint.center));
+            
+            self.tableView.contentInset = UIEdgeInsetsMake(130+64.5, 0, 0, 0);
+        } completion:^(BOOL finished) {
+            [self performSelector:@selector(backToTop) withObject:nil afterDelay:2.0f];
+        }];
+    }
+    
+}
+
+//动画结束，删除一切
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
 
-    
-//    CGFloat offset = MAX(scrollView.contentOffset.y - 64.5, 0);
-//    offset = MIN(offset, 60);
-//    scrollView.contentInset = UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f);
+    if (self.jellyView.isLoading == NO) {
+        [self.jellyView removeFromSuperview];
+        self.jellyView = nil;
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    }
 
-    
-    [self.jellyView removeFromSuperview];
-    self.jellyView = nil;
-    [self.displayLink invalidate];
-    self.displayLink = nil;
-    NSLog(@"scrollViewDidEndDecelerating");
 }
 
+//跳到顶部复原的方法
+-(void)backToTop{
+
+    [UIView animateWithDuration:0.3 delay:0.0f usingSpringWithDamping:0.4f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.tableView.contentInset = UIEdgeInsetsMake(64.5, 0, 0, 0);
+    } completion:^(BOOL finished) {
+        self.jellyView.isLoading = NO;
+        [self.jellyView removeFromSuperview];
+        self.jellyView = nil;
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    }];
+}
+
+//持续刷新屏幕的计时器
 -(void)displayLinkAction:(CADisplayLink *)dis{
-    self.jellyView.controlPointOffset = -self.tableView.contentOffset.y - 64.5;
+
+    CALayer *layer = (CALayer *)[self.jellyView.controlPoint.layer presentationLayer];
+//    NSLog(@"presentationLayer:%@",NSStringFromCGRect(layer.frame));
+    
+    self.jellyView.controlPointOffset = (self.jellyView.isLoading == NO)? (-self.tableView.contentOffset.y - 64.5) : (self.jellyView.controlPoint.layer.position.y - self.jellyView.userFrame.size.height);
+
+
     [self.jellyView setNeedsDisplay];
-    NSLog(@"contentOffset.y:%f",self.tableView.contentOffset.y);
+//    NSLog(@"contentOffset.y:%f",self.tableView.contentOffset.y);
 }
 
 @end

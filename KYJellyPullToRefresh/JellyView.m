@@ -12,8 +12,16 @@
 
 @implementation JellyView{
     UIColor *fillColor;
-    CGRect userFrame;
     CGRect jellyFrame;
+    UIImageView *ballView;
+    
+    UIDynamicAnimator *animator;
+    UICollisionBehavior *coll;
+    UISnapBehavior  *snap;
+    UIImageView *wallpaper;
+    
+    BOOL isFirstTime;
+    CGFloat angle;
 }
 
 
@@ -22,32 +30,99 @@
 
 
 - (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
+    self.userFrame = frame;
+    jellyFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + [UIScreen mainScreen].bounds.size.height);
+
+    self = [super initWithFrame:jellyFrame];
     if (self) {
-        userFrame = frame;
-        jellyFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + [UIScreen mainScreen].bounds.size.height);
+        self.isLoading = NO;
+        isFirstTime = NO;
+        
         fillColor = [UIColor colorWithRed:0 green:0.722 blue:1 alpha:1];
         self.frame = jellyFrame;
+        
+        //贝塞尔曲线的控制点
+        self.controlPoint = [[UIView alloc]initWithFrame:CGRectMake(self.userFrame.size.width / 2 - 5, self.userFrame.size.height - 5, 10, 10)];
+        self.controlPoint.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.controlPoint];
+        
+        //小球视图
+        ballView = [[UIImageView alloc]initWithFrame:CGRectMake(self.userFrame.size.width / 2 - 20, self.userFrame.size.height - 40, 40, 40)];
+        ballView.layer.cornerRadius = ballView.bounds.size.width / 2;
+        ballView.image = [UIImage imageNamed:@"ball"];
+        ballView.backgroundColor = [UIColor clearColor];
+        [self addSubview:ballView];
+        
+        //UIDynamic
+        animator = [[UIDynamicAnimator alloc]initWithReferenceView:self];
+        UIGravityBehavior *grv = [[UIGravityBehavior alloc]initWithItems:@[ballView]];
+        grv.magnitude = 2;
+        [animator addBehavior:grv];
+        coll =  [[UICollisionBehavior alloc]initWithItems:@[ballView]];
+        
+        UIDynamicItemBehavior *item = [[UIDynamicItemBehavior alloc]initWithItems:@[ballView]];
+        item.elasticity = 3;
+        item.density = 1;
+        
+        
+        //背景视图
+        wallpaper = [[UIImageView alloc]initWithFrame:CGRectMake(0, 400, self.userFrame.size.width, self.userFrame.size.height)];
+        wallpaper.image = [UIImage imageNamed:@"wallpaper"];
+
     }
     return self;
 }
 
 
 - (void)drawRect:(CGRect)rect {
-    NSLog(@"%@",NSStringFromCGRect(rect));
+    
+    if (self.isLoading == NO) {
+        [coll removeBoundaryWithIdentifier:@"弧形"];
+    }else{
+
+        if (!isFirstTime) {
+            isFirstTime = YES;
+            snap = [[ UISnapBehavior alloc]initWithItem:ballView snapToPoint:CGPointMake(self.userFrame.size.width / 2, 500 - (130+64.5)/2)];
+            [animator addBehavior:snap];
+            
+            [self startAnimation];
+        }
+        
+    }
+    
+    self.controlPoint.center = (self.isLoading == NO)?(CGPointMake(self.userFrame.size.width / 2 , self.userFrame.size.height + self.controlPointOffset)) : (CGPointMake(self.userFrame.size.width / 2, self.userFrame.size.height + self.controlPointOffset));
+
     
     UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:CGPointMake(0,userFrame.size.height)];
-    [path addQuadCurveToPoint:CGPointMake(userFrame.size.width,userFrame.size.height) controlPoint:CGPointMake(userFrame.size.width / 2.0, userFrame.size.height + self.controlPointOffset)];
-    [path addLineToPoint:CGPointMake(userFrame.size.width, 0)];
+    [path moveToPoint:CGPointMake(0,self.userFrame.size.height)];
+    [path addQuadCurveToPoint:CGPointMake(self.userFrame.size.width,self.userFrame.size.height) controlPoint:self.controlPoint.center];
+    [path addLineToPoint:CGPointMake(self.userFrame.size.width, 0)];
     [path addLineToPoint:CGPointMake(0, 0)];
     [path closePath];
-    
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextAddPath(context, path.CGPath);
     [fillColor set];
     CGContextFillPath(context);
+    
+    if(self.isLoading == NO){
+        [coll addBoundaryWithIdentifier:@"弧形" forPath:path];
+        [animator addBehavior:coll];
+    }
+
+}
+
+- (void)startAnimation
+{
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(angle * (M_PI / 180.0f));
+    
+    [UIView animateWithDuration:0.01 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        ballView.transform = endAngle;
+    } completion:^(BOOL finished) {
+        angle += 10;
+        [self startAnimation];
+    }];
+    
 }
 
 
