@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    self.title  = @"果冻下拉刷新";
+    self.title  = @"弹性小球下拉刷新";
     self.tableView.allowsSelection = YES;
     self.tableView.delegate  =self;
 }
