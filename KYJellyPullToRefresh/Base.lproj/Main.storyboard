@@ -8,15 +8,27 @@
         <scene sceneID="ba2-LZ-4wG">
             <objects>
                 <tableViewController title="果冻下拉刷新" id="bfm-gc-obJ" customClass="KYJellyTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wpf-xm-Xu8">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="165" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wpf-xm-Xu8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JellyCell" id="U3K-dG-JTQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JellyCell" rowHeight="165" id="U3K-dG-JTQ">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="U3K-dG-JTQ" id="rAf-yj-8So">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-Tb-Bbh" userLabel="cellImgView">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="164"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZZA-Tb-Bbh" firstAttribute="top" secondItem="rAf-yj-8So" secondAttribute="top" id="D6f-YP-miy"/>
+                                        <constraint firstItem="ZZA-Tb-Bbh" firstAttribute="leading" secondItem="rAf-yj-8So" secondAttribute="leading" id="OjE-3h-pei"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZZA-Tb-Bbh" secondAttribute="bottom" id="SsS-5a-cZR"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZZA-Tb-Bbh" secondAttribute="trailing" id="jp7-nv-hlZ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
@@ -37,7 +49,8 @@
             <objects>
                 <navigationController title="Navigation" automaticallyAdjustsScrollViewInsets="NO" id="wNi-Hf-g6d" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QHx-Nt-p3X">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="QHx-Nt-p3X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -9,12 +9,13 @@
 
 
 
-#define jellyHeaderHeight 500
+#define jellyHeaderHeight 300
 #import "KYJellyTableViewController.h"
 
 @interface KYJellyTableViewController ()
 
 @property (nonatomic,strong) CADisplayLink *displayLink;
+
 
 
 @end
@@ -26,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.backgroundColor = [UIColor blackColor];
     self.title  = @"果冻下拉刷新";
     self.tableView.allowsSelection = YES;
     self.tableView.delegate  =self;
@@ -46,7 +47,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 20;
+    return 8;
 }
 
 
@@ -55,7 +56,10 @@
 //    UITableViewCell *cell = [tableView UITableViewCellStyleDefault reuseIdentifier:@"JellyCell"];
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JellyCell" forIndexPath:indexPath];
-    cell.textLabel.text = [NSString stringWithFormat:@"第 %ld行",indexPath.row];
+    NSString *imgName = [NSString stringWithFormat:@"cellImg%ld",indexPath.row + 1];
+//    self.cellImgView.image = [UIImage imageNamed:imgName];
+    UIImageView *cellImgView = (UIImageView *)[cell.contentView viewWithTag:101];
+    cellImgView.image = [UIImage imageNamed:imgName];
     
     return cell;
 

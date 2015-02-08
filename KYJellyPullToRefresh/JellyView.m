@@ -18,7 +18,6 @@
     UIDynamicAnimator *animator;
     UICollisionBehavior *coll;
     UISnapBehavior  *snap;
-    UIImageView *wallpaper;
     
     BOOL isFirstTime;
     CGFloat angle;
@@ -38,7 +37,9 @@
         self.isLoading = NO;
         isFirstTime = NO;
         
-        fillColor = [UIColor colorWithRed:0 green:0.722 blue:1 alpha:1];
+//        fillColor = [UIColor colorWithRed:0 green:0.722 blue:1 alpha:1];
+        fillColor = [UIColor blackColor];
+//        fillColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"wallpaper"]];
         self.frame = jellyFrame;
         
         //贝塞尔曲线的控制点
@@ -47,7 +48,7 @@
         [self addSubview:self.controlPoint];
         
         //小球视图
-        ballView = [[UIImageView alloc]initWithFrame:CGRectMake(self.userFrame.size.width / 2 - 20, self.userFrame.size.height - 40, 40, 40)];
+        ballView = [[UIImageView alloc]initWithFrame:CGRectMake(self.userFrame.size.width / 3 - 20, self.userFrame.size.height - 100, 40, 40)];
         ballView.layer.cornerRadius = ballView.bounds.size.width / 2;
         ballView.image = [UIImage imageNamed:@"ball"];
         ballView.backgroundColor = [UIColor clearColor];
@@ -61,13 +62,9 @@
         coll =  [[UICollisionBehavior alloc]initWithItems:@[ballView]];
         
         UIDynamicItemBehavior *item = [[UIDynamicItemBehavior alloc]initWithItems:@[ballView]];
-        item.elasticity = 3;
+        item.elasticity = 0;
         item.density = 1;
-        
-        
-        //背景视图
-        wallpaper = [[UIImageView alloc]initWithFrame:CGRectMake(0, 400, self.userFrame.size.width, self.userFrame.size.height)];
-        wallpaper.image = [UIImage imageNamed:@"wallpaper"];
+    
 
     }
     return self;
@@ -82,7 +79,7 @@
 
         if (!isFirstTime) {
             isFirstTime = YES;
-            snap = [[ UISnapBehavior alloc]initWithItem:ballView snapToPoint:CGPointMake(self.userFrame.size.width / 2, 500 - (130+64.5)/2)];
+            snap = [[ UISnapBehavior alloc]initWithItem:ballView snapToPoint:CGPointMake(self.userFrame.size.width / 2, self.userFrame.size.height - (130+64.5)/2)];
             [animator addBehavior:snap];
             
             [self startAnimation];
@@ -102,7 +99,7 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextAddPath(context, path.CGPath);
-    [fillColor set];
+    [fillColor setFill];
     CGContextFillPath(context);
     
     if(self.isLoading == NO){
