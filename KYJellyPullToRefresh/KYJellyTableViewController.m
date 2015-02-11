@@ -62,9 +62,12 @@
     cellImgView.image = [UIImage imageNamed:imgName];
     
     return cell;
-
-
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
 
 
 
