@@ -7,7 +7,7 @@
 
 ##How To Use
 
-First,initiate the Jellview and the "displayLink"  in the `- (void)scrollViewDidScroll:(UIScrollView *)scrollView`  method:
+Firstly,in your ViewController or TableViewController,initiate the Jellview and the "displayLink"  in the `- (void)scrollViewDidScroll:(UIScrollView *)scrollView`  method:
 Like this:
 ```
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
