@@ -82,7 +82,7 @@
             snap = [[ UISnapBehavior alloc]initWithItem:ballView snapToPoint:CGPointMake(self.userFrame.size.width / 2, self.userFrame.size.height - (130+64.5)/2)];
             [animator addBehavior:snap];
             
-            [self startAnimation];
+            [self startLoading];
         }
         
     }
@@ -108,7 +108,7 @@
 
 }
 
-- (void)startAnimation
+- (void)startLoading
 {
     CGAffineTransform endAngle = CGAffineTransformMakeRotation(angle * (M_PI / 180.0f));
     
@@ -116,7 +116,7 @@
         ballView.transform = endAngle;
     } completion:^(BOOL finished) {
         angle += 10;
-        [self startAnimation];
+        [self startLoading];
     }];
     
 }
