@@ -83,6 +83,11 @@
         
         self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkAction:)];
         [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+    }else if ((-scrollView.contentOffset.y - 64.5) < 0){
+        [self.jellyView removeFromSuperview];
+        self.jellyView = nil;
+        [self.displayLink invalidate];
+        self.displayLink = nil;
     }
 
 }
@@ -95,7 +100,6 @@
     if (offset >= 130) {
         
         self.jellyView.isLoading = YES;
-        
         
         [UIView animateWithDuration:0.3 delay:0.0f usingSpringWithDamping:0.4f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             
