@@ -68,4 +68,6 @@ Lastest,remove everything:
 ```
 
 
+Intro:  [http://kittenyang.com/cadisplaylinkanduibezierpath/](http://kittenyang.com/cadisplaylinkanduibezierpath/)
+
 
