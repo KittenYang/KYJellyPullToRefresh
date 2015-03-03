@@ -15,6 +15,9 @@
     CGRect jellyFrame;
     UIImageView *ballView;
     
+    CAShapeLayer *shapeLayer;
+    
+    
     UIDynamicAnimator *animator;
     UICollisionBehavior *coll;
     UISnapBehavior  *snap;
@@ -64,8 +67,9 @@
         UIDynamicItemBehavior *item = [[UIDynamicItemBehavior alloc]initWithItems:@[ballView]];
         item.elasticity = 0;
         item.density = 1;
-    
-
+        
+        shapeLayer = [CAShapeLayer layer];
+        [self.layer insertSublayer:shapeLayer below:ballView.layer];
     }
     return self;
 }
@@ -96,10 +100,14 @@
     [path addLineToPoint:CGPointMake(0, 0)];
     [path closePath];
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextAddPath(context, path.CGPath);
-    [fillColor setFill];
-    CGContextFillPath(context);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextAddPath(context, path.CGPath);
+//    [fillColor setFill];
+//    CGContextFillPath(context);
+    
+    shapeLayer.path = path.CGPath;
+    shapeLayer.fillColor = [UIColor redColor].CGColor;
+
     
     if(self.isLoading == NO){
         [coll addBoundaryWithIdentifier:@"弧形" forPath:path];

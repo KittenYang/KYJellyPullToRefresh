@@ -75,6 +75,10 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
+    if (scrollView.contentOffset.y > -64.5) {
+        return;
+    }
+
     if (self.displayLink == nil && (-scrollView.contentOffset.y - 64.5) > 0) {
         self.jellyView = [[JellyView alloc]initWithFrame:CGRectMake(0, -jellyHeaderHeight , [UIScreen mainScreen].bounds.size.width, jellyHeaderHeight)];
         self.jellyView.backgroundColor = [UIColor clearColor];
@@ -126,7 +130,7 @@
 
 }
 
-//跳到顶部复原的方法
+//跳到顶部的方法
 -(void)backToTop{
 
     [UIView animateWithDuration:0.3 delay:0.0f usingSpringWithDamping:0.4f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
