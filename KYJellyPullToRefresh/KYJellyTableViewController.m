@@ -76,6 +76,13 @@
 {
     
     if (scrollView.contentOffset.y > -64.5) {
+        if (self.jellyView.isLoading == NO) {
+            [self.jellyView removeFromSuperview];
+            self.jellyView = nil;
+            [self.displayLink invalidate];
+            self.displayLink = nil;
+        }
+        
         return;
     }
 
