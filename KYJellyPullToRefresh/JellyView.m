@@ -86,7 +86,7 @@
             snap = [[ UISnapBehavior alloc]initWithItem:ballView snapToPoint:CGPointMake(self.userFrame.size.width / 2, self.userFrame.size.height - (130+64.5)/2)];
             [animator addBehavior:snap];
             
-            [self startLoading];
+//            [self startLoading];
         }
         
     }

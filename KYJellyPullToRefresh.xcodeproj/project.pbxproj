@@ -63,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F8FEB8B1AD6E17000EAF88E /* JellyView */ = {
+			isa = PBXGroup;
+			children = (
+				5FD6488F1A86432200E844B0 /* JellyView.h */,
+				5FD648901A86432200E844B0 /* JellyView.m */,
+			);
+			name = JellyView;
+			sourceTree = "<group>";
+		};
 		5FD648571A85D50C00E844B0 = {
 			isa = PBXGroup;
 			children = (
@@ -88,8 +97,7 @@
 				5FD648681A85D50D00E844B0 /* AppDelegate.m */,
 				5FD6488C1A85E78800E844B0 /* KYJellyTableViewController.h */,
 				5FD6488D1A85E78800E844B0 /* KYJellyTableViewController.m */,
-				5FD6488F1A86432200E844B0 /* JellyView.h */,
-				5FD648901A86432200E844B0 /* JellyView.m */,
+				5F8FEB8B1AD6E17000EAF88E /* JellyView */,
 				5FD6486D1A85D50D00E844B0 /* Main.storyboard */,
 				5FD648701A85D50D00E844B0 /* Images.xcassets */,
 				5FD648721A85D50D00E844B0 /* LaunchScreen.xib */,
