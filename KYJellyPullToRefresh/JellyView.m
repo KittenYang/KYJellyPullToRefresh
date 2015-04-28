@@ -29,8 +29,6 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-
-
 - (id)initWithFrame:(CGRect)frame{
     self.userFrame = frame;
     jellyFrame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height + [UIScreen mainScreen].bounds.size.height);
@@ -85,8 +83,7 @@
             isFirstTime = YES;
             snap = [[ UISnapBehavior alloc]initWithItem:ballView snapToPoint:CGPointMake(self.userFrame.size.width / 2, self.userFrame.size.height - (130+64.5)/2)];
             [animator addBehavior:snap];
-            
-//            [self startLoading];
+            [self startLoading];
         }
         
     }
@@ -99,11 +96,6 @@
     [path addLineToPoint:CGPointMake(self.userFrame.size.width, 0)];
     [path addLineToPoint:CGPointMake(0, 0)];
     [path closePath];
-    
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-//    CGContextAddPath(context, path.CGPath);
-//    [fillColor setFill];
-//    CGContextFillPath(context);
     
     shapeLayer.path = path.CGPath;
     shapeLayer.fillColor = [UIColor redColor].CGColor;
@@ -118,14 +110,22 @@
 
 - (void)startLoading
 {
-    CGAffineTransform endAngle = CGAffineTransformMakeRotation(angle * (M_PI / 180.0f));
+//    CGAffineTransform endAngle = CGAffineTransformMakeRotation(angle * (M_PI / 180.0f));
+//    
+//    [UIView animateWithDuration:0.01 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+//        ballView.transform = endAngle;
+//    } completion:^(BOOL finished) {
+//        angle += 10;
+//        [self startLoading];
+//    }];
     
-    [UIView animateWithDuration:0.01 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        ballView.transform = endAngle;
-    } completion:^(BOOL finished) {
-        angle += 10;
-        [self startLoading];
-    }];
+    CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = @(M_PI * 2.0);
+    rotationAnimation.duration = 0.9f;
+    rotationAnimation.autoreverses = NO;
+    rotationAnimation.repeatCount = HUGE_VALF;
+    rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    [ballView.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
     
 }
 

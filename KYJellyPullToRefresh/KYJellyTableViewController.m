@@ -53,11 +53,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    UITableViewCell *cell = [tableView UITableViewCellStyleDefault reuseIdentifier:@"JellyCell"];
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"JellyCell" forIndexPath:indexPath];
     NSString *imgName = [NSString stringWithFormat:@"cellImg%ld",indexPath.row + 1];
-//    self.cellImgView.image = [UIImage imageNamed:imgName];
     UIImageView *cellImgView = (UIImageView *)[cell.contentView viewWithTag:101];
     cellImgView.image = [UIImage imageNamed:imgName];
     
@@ -139,7 +136,8 @@
 
 //跳到顶部的方法
 -(void)backToTop{
-
+    
+    [self.jellyView.layer removeAnimationForKey:@"rotationAnimation"];
     [UIView animateWithDuration:0.3 delay:0.0f usingSpringWithDamping:0.4f initialSpringVelocity:0.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.tableView.contentInset = UIEdgeInsetsMake(64.5, 0, 0, 0);
     } completion:^(BOOL finished) {
@@ -153,15 +151,10 @@
 
 //持续刷新屏幕的计时器
 -(void)displayLinkAction:(CADisplayLink *)dis{
-
-    CALayer *layer = (CALayer *)[self.jellyView.controlPoint.layer presentationLayer];
-//    NSLog(@"presentationLayer:%@",NSStringFromCGRect(layer.frame));
     
     self.jellyView.controlPointOffset = (self.jellyView.isLoading == NO)? (-self.tableView.contentOffset.y - 64.5) : (self.jellyView.controlPoint.layer.position.y - self.jellyView.userFrame.size.height);
-
-
     [self.jellyView setNeedsDisplay];
-//    NSLog(@"contentOffset.y:%f",self.tableView.contentOffset.y);
+
 }
 
 @end
