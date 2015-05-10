@@ -22,7 +22,7 @@
 
 Firstly,in your ViewController or TableViewController,initiate the Jellview and the "displayLink"  in the `- (void)scrollViewDidScroll:(UIScrollView *)scrollView`  method:
 Like this:
-```
+```objective-c
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     
@@ -40,7 +40,8 @@ Like this:
 ```
 
 Then you should change the controlPoint of the Bezier Path
-```
+
+```objective-c
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
 
     CGFloat offset = -scrollView.contentOffset.y - 64.5;
@@ -65,7 +66,8 @@ Then you should change the controlPoint of the Bezier Path
 ```
 
 Lastest,remove everything:
-```
+
+```objective-c
 //动画结束，删除一切
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
 
