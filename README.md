@@ -1,6 +1,6 @@
 
 <p align="left" >
-  <img src="logo.png" alt="KYParallaxView" title="KYParallaxView">
+  <img src="logo.png" alt="KYJellyPullToRefresh" title="KYJellyPullToRefresh">
 </p>
 
 
