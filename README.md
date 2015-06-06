@@ -76,3 +76,6 @@ Lastest,remove everything:
 Intro:  [http://kittenyang.com/cadisplaylinkanduibezierpath/](http://kittenyang.com/cadisplaylinkanduibezierpath/)
 
 
+##License
+This project is under MIT License. See LICENSE file for more information.
+
